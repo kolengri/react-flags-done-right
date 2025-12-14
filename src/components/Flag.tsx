@@ -2,11 +2,7 @@ import { lazy, Suspense, type ComponentType } from "react";
 import type { SVGProps } from "react";
 import { Skeleton } from "./skeleton";
 import { Fallback } from "./fallback";
-import {
-  flagComponentLoaders,
-  type FlagComponentName,
-  type FlagCode,
-} from "./flags";
+import { flagComponentLoaders, type FlagCode } from "./flags";
 
 /**
  * Cache for lazy components to avoid re-creating them.

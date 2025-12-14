@@ -21,6 +21,8 @@
     "noUncheckedIndexedAccess": true,
     "noImplicitOverride": true,
 
+    "types": ["bun-types", "@testing-library/jest-dom"],
+
     "baseUrl": ".",
     "paths": {
       "@/*": ["./src/*"]
