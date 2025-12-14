@@ -203,9 +203,8 @@ This will show a visual representation of what's in your bundle.
 To test in a real project:
 
 1. Create a new React project
-2. Install the package: `npm install ./path/to/react-flags-done-right`
+2. Install the package: `npm install ./path/to/react-lazy-flags`
 3. Use only 1-2 flags
 4. Build the project
 5. Check bundle size
 6. Verify only used flags are included
-

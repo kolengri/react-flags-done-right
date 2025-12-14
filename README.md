@@ -1,4 +1,4 @@
-# react-flags-done-right
+# react-lazy-flags
 
 A React component library for country flags with lazy loading support using React Suspense.
 
@@ -14,13 +14,13 @@ A React component library for country flags with lazy loading support using Reac
 ## Installation
 
 ```bash
-npm install react-flags-done-right
+npm install react-lazy-flags
 # or
-yarn add react-flags-done-right
+yarn add react-lazy-flags
 # or
-pnpm add react-flags-done-right
+pnpm add react-lazy-flags
 # or
-bun add react-flags-done-right
+bun add react-lazy-flags
 ```
 
 ## Usage
@@ -29,7 +29,7 @@ bun add react-flags-done-right
 
 ```tsx
 import { Suspense } from "react";
-import { Flag } from "react-flags-done-right";
+import { Flag } from "react-lazy-flags";
 
 function App() {
   return (
@@ -46,7 +46,7 @@ function App() {
 
 ```tsx
 import { Suspense } from "react";
-import { Flag } from "react-flags-done-right";
+import { Flag } from "react-lazy-flags";
 
 function App() {
   return (
@@ -66,7 +66,7 @@ function App() {
 
 ```tsx
 import { Suspense } from "react";
-import { Flag } from "react-flags-done-right";
+import { Flag } from "react-lazy-flags";
 
 function FlagList() {
   const countries = ["us", "gb", "fr", "de", "jp"];

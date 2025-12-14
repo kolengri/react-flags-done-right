@@ -1,5 +1,5 @@
 {
-  "name": "react-flags-done-right",
+  "name": "react-lazy-flags",
   "version": "0.1.0",
   "description": "React component library for country flags with lazy loading support",
   "type": "module",
@@ -48,11 +48,11 @@
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/kolengri/react-flags-done-right.git"
+    "url": "git+https://github.com/kolengri/react-lazy-flags.git"
   },
-  "homepage": "https://github.com/kolengri/react-flags-done-right#readme",
+  "homepage": "https://github.com/kolengri/react-lazy-flags#readme",
   "bugs": {
-    "url": "https://github.com/kolengri/react-flags-done-right/issues"
+    "url": "https://github.com/kolengri/react-lazy-flags/issues"
   },
   "peerDependencies": {
     "react": "^18.0.0 || ^19.0.0",

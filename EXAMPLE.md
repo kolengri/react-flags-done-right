@@ -3,14 +3,14 @@
 ## Installation in Another Project
 
 ```bash
-npm install react-flags-done-right
+npm install react-lazy-flags
 ```
 
 ## Basic Example
 
 ```tsx
 import { Suspense } from "react";
-import { Flag } from "react-flags-done-right";
+import { Flag } from "react-lazy-flags";
 
 function MyApp() {
   return (
@@ -37,4 +37,3 @@ Bun natively supports TypeScript, so no additional configuration is needed.
 ## Note
 
 Since the package exports TypeScript source files, make sure your project's bundler is configured to handle `.ts` and `.tsx` files from `node_modules`.
-
