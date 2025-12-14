@@ -1,0 +1,29 @@
+# Development files
+scripts/
+src/svg/
+src/App.tsx
+src/frontend.tsx
+src/index.html
+src/index.ts
+src/index.css
+
+# Build outputs
+dist/
+dist-demo/
+out/
+
+# Development config
+.cursor/
+bunfig.toml
+bun-env.d.ts
+
+# Git
+.git/
+.gitignore
+
+# Dependencies
+node_modules/
+
+# Other
+*.log
+.DS_Store
