@@ -14,10 +14,14 @@
     "./package.json": "./package.json"
   },
   "files": [
-    "src/components/**/*.tsx",
-    "src/components/**/*.ts",
+    "src/components/Flag.tsx",
+    "src/components/fallback.tsx",
+    "src/components/skeleton.tsx",
+    "src/components/flags/**/*.tsx",
+    "src/components/flags/**/*.ts",
     "src/index.ts",
     "README.md",
+    "LICENSE",
     "package.json"
   ],
   "scripts": {
@@ -40,8 +44,16 @@
     "suspense",
     "svg"
   ],
-  "author": "",
+  "author": "kolengri",
   "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kolengri/react-flags-done-right.git"
+  },
+  "homepage": "https://github.com/kolengri/react-flags-done-right#readme",
+  "bugs": {
+    "url": "https://github.com/kolengri/react-flags-done-right/issues"
+  },
   "peerDependencies": {
     "react": "^18.0.0 || ^19.0.0",
     "react-dom": "^18.0.0 || ^19.0.0"

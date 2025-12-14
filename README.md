@@ -117,6 +117,10 @@ The library uses React's `lazy()` and `Suspense` to enable code splitting. Each 
 - React 18.0.0 or higher
 - React DOM 18.0.0 or higher
 
+## Credits
+
+The flag SVG designs are based on [circle-flags](https://github.com/HatScripts/circle-flags) by [HatScripts](https://github.com/HatScripts), a collection of 400+ minimal circular SVG country, state and language flags.
+
 ## License
 
 MIT

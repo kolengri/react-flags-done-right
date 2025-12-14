@@ -9,6 +9,12 @@ src/index.css
 src/test-app.tsx
 test-bundle/
 
+# Test files
+**/*.test.tsx
+**/*.test.ts
+**/*.spec.tsx
+**/*.spec.ts
+
 # Build outputs
 dist/
 dist-demo/
