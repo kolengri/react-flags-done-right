@@ -13,13 +13,11 @@ export function App() {
           marginTop: "20px",
         }}
       >
-        <Suspense fallback={<div>Loading flag...</div>}>
-          <Flag code="ad" width={64} height={64} />
-          <Flag code="us-ca" width={64} height={64} />
-          <Flag code="gb" width={64} height={64} />
-          <Flag code="fr" width={64} height={64} />
-          <Flag code="de" width={64} height={64} />
-        </Suspense>
+        <Flag code="ad" width={64} height={64} />
+        <Flag code="us-ca" width={64} height={64} />
+        <Flag code="gb" width={64} height={64} />
+        <Flag code="fr" width={64} height={64} />
+        <Flag code="de" width={64} height={64} />
       </div>
     </div>
   );

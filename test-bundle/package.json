@@ -1,0 +1,18 @@
+{
+  "name": "test-react-flags-bundle",
+  "version": "1.0.0",
+  "type": "module",
+  "scripts": {
+    "build": "bun build ./test-app.tsx --outdir=dist --target=browser --minify",
+    "build:analyze": "bun build ./test-app.tsx --outdir=dist --target=browser --minify --sourcemap",
+    "dev": "bun --hot ./test-app.tsx"
+  },
+  "dependencies": {
+    "react": "^19",
+    "react-dom": "^19"
+  },
+  "devDependencies": {
+    "@types/react": "^19",
+    "@types/react-dom": "^19"
+  }
+}

@@ -28,6 +28,8 @@
     "start": "NODE_ENV=production bun src/index.ts",
     "generate:flags": "bun scripts/generate-flags.ts",
     "generate:index": "bun scripts/generate-flag-index.ts",
+    "analyze": "bun scripts/analyze-bundle.ts",
+    "test:app": "bun run src/test-app.tsx",
     "prepublishOnly": "bun run build"
   },
   "keywords": [

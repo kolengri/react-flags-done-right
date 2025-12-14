@@ -33,11 +33,11 @@ import { Flag } from "react-flags-done-right";
 
 function App() {
   return (
-    <Suspense fallback={<div>Loading flag...</div>}>
+    <div>
       <Flag code="us" width={64} height={64} />
       <Flag code="gb" width={64} height={64} />
       <Flag code="fr" width={64} height={64} />
-    </Suspense>
+    </div>
   );
 }
 ```
@@ -50,14 +50,14 @@ import { Flag } from "react-flags-done-right";
 
 function App() {
   return (
-    <Suspense fallback={<div>Loading...</div>}>
+    <div>
       <Flag
         code="us-ca"
         width={64}
         height={64}
         fallback={<div>Loading California flag...</div>}
       />
-    </Suspense>
+    </div>
   );
 }
 ```
@@ -72,11 +72,11 @@ function FlagList() {
   const countries = ["us", "gb", "fr", "de", "jp"];
 
   return (
-    <Suspense fallback={<div>Loading flags...</div>}>
+    <div>
       {countries.map((code) => (
         <Flag key={code} code={code} width={48} height={48} />
       ))}
-    </Suspense>
+    </div>
   );
 }
 ```

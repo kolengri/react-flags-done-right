@@ -6,6 +6,8 @@ src/frontend.tsx
 src/index.html
 src/index.ts
 src/index.css
+src/test-app.tsx
+test-bundle/
 
 # Build outputs
 dist/

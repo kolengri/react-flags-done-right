@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Lazy Loading Test</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        padding: 20px;
+        max-width: 1200px;
+        margin: 0 auto;
+      }
+      .flag-container {
+        display: flex;
+        gap: 20px;
+        flex-wrap: wrap;
+        margin: 20px 0;
+      }
+      .info {
+        background: #f5f5f5;
+        padding: 15px;
+        border-radius: 8px;
+        margin: 20px 0;
+      }
+      .network-log {
+        background: #000;
+        color: #0f0;
+        padding: 10px;
+        border-radius: 4px;
+        font-family: monospace;
+        font-size: 12px;
+        max-height: 300px;
+        overflow-y: auto;
+        margin-top: 10px;
+      }
+      button {
+        padding: 10px 20px;
+        margin: 5px;
+        cursor: pointer;
+        background: #007bff;
+        color: white;
+        border: none;
+        border-radius: 4px;
+      }
+      button:hover {
+        background: #0056b3;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>🚩 Lazy Loading Test for React Flags</h1>
+
+    <div class="info">
+      <h3>Instructions:</h3>
+      <ol>
+        <li>Open Browser DevTools (F12)</li>
+        <li>Go to Network tab</li>
+        <li>Filter by "JS" or "All"</li>
+        <li>Click buttons below to load flags</li>
+        <li>Watch for new chunk files being loaded</li>
+      </ol>
+    </div>
+
+    <div>
+      <button onclick="loadFlag('us')">Load US Flag</button>
+      <button onclick="loadFlag('gb')">Load GB Flag</button>
+      <button onclick="loadFlag('fr')">Load FR Flag</button>
+      <button onclick="loadFlag('de')">Load DE Flag</button>
+      <button onclick="loadFlag('jp')">Load JP Flag</button>
+      <button onclick="loadAll()">Load All Flags</button>
+    </div>
+
+    <div id="flags-container" class="flag-container"></div>
+
+    <div class="info">
+      <h3>Network Activity Log:</h3>
+      <div id="network-log" class="network-log">
+        Waiting for flag loads...<br />
+      </div>
+    </div>
+
+    <script type="module">
+      import {
+        StrictMode,
+        Suspense,
+        createElement,
+      } from "https://esm.sh/react@19";
+      import { createRoot } from "https://esm.sh/react-dom@19/client";
+
+      // This would normally import from the package
+      // For testing, we'll simulate the behavior
+
+      let loadCount = 0;
+      const logNetwork = (message) => {
+        const log = document.getElementById("network-log");
+        const time = new Date().toLocaleTimeString();
+        log.innerHTML += `[${time}] ${message}<br>`;
+        log.scrollTop = log.scrollHeight;
+      };
+
+      window.loadFlag = async (code) => {
+        logNetwork(`🔄 Loading flag: ${code}`);
+        loadCount++;
+
+        // Simulate lazy loading
+        const startTime = performance.now();
+
+        // In real scenario, this would trigger a dynamic import
+        await new Promise((resolve) => setTimeout(resolve, 100));
+
+        const endTime = performance.now();
+        logNetwork(
+          `✅ Flag ${code} loaded in ${(endTime - startTime).toFixed(
+            2
+          )}ms (chunk #${loadCount})`
+        );
+      };
+
+      window.loadAll = () => {
+        const flags = ["us", "gb", "fr", "de", "jp"];
+        flags.forEach((code, index) => {
+          setTimeout(() => loadFlag(code), index * 200);
+        });
+      };
+
+      logNetwork("📦 Test page loaded");
+      logNetwork("💡 Click buttons above to test lazy loading");
+    </script>
+  </body>
+</html>

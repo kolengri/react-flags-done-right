@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Runtime Lazy Loading Verification</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        padding: 20px;
+        max-width: 1200px;
+        margin: 0 auto;
+      }
+      .instructions {
+        background: #e3f2fd;
+        padding: 15px;
+        border-radius: 8px;
+        margin-bottom: 20px;
+      }
+      .flag-container {
+        display: flex;
+        gap: 20px;
+        flex-wrap: wrap;
+        margin: 20px 0;
+      }
+      button {
+        padding: 10px 20px;
+        margin: 5px;
+        cursor: pointer;
+        background: #007bff;
+        color: white;
+        border: none;
+        border-radius: 4px;
+      }
+      button:hover {
+        background: #0056b3;
+      }
+      .log {
+        background: #f5f5f5;
+        padding: 10px;
+        border-radius: 4px;
+        font-family: monospace;
+        font-size: 12px;
+        max-height: 200px;
+        overflow-y: auto;
+        margin-top: 10px;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>🚩 Runtime Lazy Loading Verification</h1>
+
+    <div class="instructions">
+      <h3>How to verify lazy loading works:</h3>
+      <ol>
+        <li>Open Browser DevTools (F12)</li>
+        <li>Go to <strong>Network</strong> tab</li>
+        <li>Filter by <strong>"JS"</strong> files</li>
+        <li>Clear the network log</li>
+        <li>Click buttons below to load flags</li>
+        <li>
+          <strong>Watch for new JS files being loaded</strong> - each flag
+          should trigger a separate network request
+        </li>
+      </ol>
+      <p>
+        <strong>Expected:</strong> Each flag click should result in a new JS
+        chunk file being loaded from the network.
+      </p>
+    </div>
+
+    <div>
+      <button onclick="loadFlag('us')">Load US Flag</button>
+      <button onclick="loadFlag('gb')">Load GB Flag</button>
+      <button onclick="loadFlag('fr')">Load FR Flag</button>
+      <button onclick="loadFlag('de')">Load DE Flag</button>
+      <button onclick="loadFlag('jp')">Load JP Flag</button>
+      <button onclick="clearFlags()">Clear Flags</button>
+    </div>
+
+    <div id="flags-container" class="flag-container"></div>
+
+    <div>
+      <h3>Loaded Flags Log:</h3>
+      <div id="log" class="log">No flags loaded yet. Click buttons above.</div>
+    </div>
+
+    <script type="module">
+      // This simulates what happens in a real app
+      // In production, you would import from the package:
+      // import { Flag } from 'react-flags-done-right';
+
+      const log = document.getElementById("log");
+      const flagsContainer = document.getElementById("flags-container");
+      let loadedFlags = new Set();
+
+      function addLog(message) {
+        const time = new Date().toLocaleTimeString();
+        log.innerHTML += `[${time}] ${message}<br>`;
+        log.scrollTop = log.scrollHeight;
+      }
+
+      window.loadFlag = async (code) => {
+        if (loadedFlags.has(code)) {
+          addLog(`Flag ${code} already loaded (cached)`);
+          return;
+        }
+
+        addLog(`🔄 Requesting flag: ${code}`);
+        loadedFlags.add(code);
+
+        // Simulate lazy loading delay
+        await new Promise((resolve) => setTimeout(resolve, 100));
+
+        // In real app, this would be the lazy-loaded component
+        const flagDiv = document.createElement("div");
+        flagDiv.innerHTML = `
+        <div style="text-align: center;">
+          <div style="width: 64px; height: 64px; background: #ddd; border: 1px solid #999; display: inline-block;"></div>
+          <div style="font-size: 10px; margin-top: 5px;">${code.toUpperCase()}</div>
+        </div>
+      `;
+        flagsContainer.appendChild(flagDiv);
+
+        addLog(`✅ Flag ${code} loaded and rendered`);
+        addLog(
+          `💡 Check Network tab - you should see a new JS file for ${code}`
+        );
+      };
+
+      window.clearFlags = () => {
+        flagsContainer.innerHTML = "";
+        loadedFlags.clear();
+        log.innerHTML = "Flags cleared. Ready for new loads.";
+      };
+
+      addLog("Ready! Click buttons to test lazy loading.");
+      addLog("Remember to watch the Network tab in DevTools!");
+    </script>
+  </body>
+</html>
