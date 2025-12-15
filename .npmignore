@@ -1,12 +1,6 @@
 # Development files
 scripts/
-src/svg/
-src/App.tsx
-src/frontend.tsx
-src/index.html
-src/index.ts
-src/index.css
-src/test-app.tsx
+src/
 test-bundle/
 
 # Test files
@@ -15,8 +9,7 @@ test-bundle/
 **/*.spec.tsx
 **/*.spec.ts
 
-# Build outputs
-dist/
+# Build outputs (dist/ is included in package)
 dist-demo/
 out/
 

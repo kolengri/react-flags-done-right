@@ -30,16 +30,17 @@ npm publish
 
 The package includes:
 
-- `src/components/Flag.tsx` - Main Flag component
-- `src/components/flags/*.tsx` - All flag components (427 flags)
-- `src/components/flags/index.ts` - Auto-generated flag loaders mapping
-- `src/index.ts` - Package entry point
+- `dist/components/Flag.tsx` - Main Flag component
+- `dist/components/flags/*.tsx` - All flag components (404 flags)
+- `dist/components/flags/index.ts` - Auto-generated flag loaders mapping
+- `dist/index.ts` - Package entry point
 - `README.md` - Documentation
 
 ## Important Notes
 
-- The package exports TypeScript source files directly
+- The package exports TypeScript source files from `dist/` directory
+- Files are copied from `src/` to `dist/` during build process
 - Consumers' bundlers will handle compilation
 - Lazy loading works because all flag components are separate files
-- Make sure `src/components` directory structure is preserved in the package
+- The `dist/` directory structure is preserved in the package
 
