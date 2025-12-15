@@ -1,5 +1,7 @@
 # react-lazy-flags
 
+[![npm](https://img.shields.io/npm/v/react-lazy-flags.svg)](https://www.npmjs.com/package/react-lazy-flags)
+
 A React component library for country flags with lazy loading support using React Suspense.
 
 ## Features
@@ -13,13 +15,21 @@ A React component library for country flags with lazy loading support using Reac
 
 ## Installation
 
+Install from [npm](https://www.npmjs.com/package/react-lazy-flags):
+
 ```bash
 npm install react-lazy-flags
-# or
+```
+
+```bash
 yarn add react-lazy-flags
-# or
+```
+
+```bash
 pnpm add react-lazy-flags
-# or
+```
+
+```bash
 bun add react-lazy-flags
 ```
 
